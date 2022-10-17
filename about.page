@@ -6,3 +6,12 @@ author: Taufik Nurrohman
 link: 'http://kint-php.github.io/kint'
 version: 0.0.1
 ...
+
+### Usage
+
+~~~ php
+if (defined('TEST') && TEST) {
+    kint($_COOKIE, $_ENV, $_GET, $_POST, $_REQUEST, $_SERVER);
+    exit;
+}
+~~~
