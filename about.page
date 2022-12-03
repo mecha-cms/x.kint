@@ -3,15 +3,29 @@ title: Kint
 description: Smart and rich PHP data inspector.
 icon: 'M19,19V5H5V19H19M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5C3,3.89 3.9,3 5,3H19M11,7H13V11H17V13H13V17H11V13H7V11H11V7Z'
 author: Taufik Nurrohman
+image: /lot/x/kint/index.png
 link: 'http://kint-php.github.io/kint'
+type: Markdown
 version: 0.0.1
 ...
 
+Mecha already has a built-in function named `test()` to perform simple data inspections returned from PHP expressions.
+This extension provides a more useful and complete inspection feature by using the global `kint()` function.
+
 ### Usage
 
-~~~ php
+The way to use it is exactly the same as how you would use the `test()` function so it will be easier for you to
+refactor your existing code if you want to use this extension in the long term. It is a good practice to always call
+this function inside a non-production mode conditional statement so that this function will not be executed when you are
+already in production mode:
+
+~~~ .php
 if (defined('TEST') && TEST) {
-    kint($_COOKIE, $_ENV, $_GET, $_POST, $_REQUEST, $_SERVER);
+    if (function_exists('kint')) {
+        kint($_COOKIE, $_ENV, $_FILES, $_GET, $_POST, $_REQUEST, $_SERVER);
+    } else {
+        test($_COOKIE, $_ENV, $_FILES, $_GET, $_POST, $_REQUEST, $_SERVER);
+    }
     exit;
 }
 ~~~
