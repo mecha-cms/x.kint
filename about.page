@@ -29,3 +29,13 @@ if (defined('TEST') && TEST) {
     exit;
 }
 ~~~
+
+I really recommend you to install this extension if you want to develop [Panel](https://github.com/mecha-cms/x.panel)
+features. By using this extension, the Panel data inspection results will look very neat and concise:
+
+~~~ .php
+Hook::set('_', function ($_) {
+    kint($_, $_GET, $_POST, $_SESSION, $_SERVER);
+    exit;
+}, 1000);
+~~~
