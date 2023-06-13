@@ -1,24 +1,24 @@
 ---
 title: Kint
-description: Smart and rich PHP data inspector.
+description: Smart and feature rich PHP data inspector.
 icon: 'M19,19V5H5V19H19M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5C3,3.89 3.9,3 5,3H19M11,7H13V11H17V13H13V17H11V13H7V11H11V7Z'
 color: '#54a932'
 author: Taufik Nurrohman
 image: /lot/x/kint/index.png
 link: 'http://kint-php.github.io/kint'
 type: Markdown
-version: 0.0.1
+version: 1.0.0
 ...
 
-Mecha already has a built-in function named `test()` to perform simple data inspections returned from PHP expressions.
-This extension provides a more useful and complete inspection feature by using the global `kint()` function.
+Mecha already has a built-in function called `test()` to perform simple data inspections returned by PHP expressions.
+This extension provides a more useful and complete inspection function by using the global `kint()` function.
 
 ### Usage
 
-The way to use it is exactly the same as how you would use the `test()` function so it will be easier for you to
-refactor your existing code if you want to use this extension in the long term. It is a good practice to always call
-this function inside a non-production mode conditional statement so that this function will not be executed when you are
-already in production mode:
+The way you use it is exactly the same as you would use the `test()` function, so it will be easier for you to refactor
+your existing code if you want to use this extension in the long run. It is a good practice to always call this function
+within a non-production mode conditional statement, so that this function will not be executed when you are already in
+production mode:
 
 ~~~ .php
 if (defined('TEST') && TEST) {
@@ -32,11 +32,11 @@ if (defined('TEST') && TEST) {
 ~~~
 
 I really recommend you to install this extension if you want to develop [Panel](https://github.com/mecha-cms/x.panel)
-features. By using this extension, the Panel data inspection results will look very neat and concise:
+features on your own. By using this extension, the Panel data inspection results will look very neat and tidy:
 
 ~~~ .php
 Hook::set('_', function ($_) {
     kint($_, $_GET, $_POST, $_SESSION, $_SERVER);
     exit;
-}, 1000);
+}, 1000); // Execute as late as possible…
 ~~~
